@@ -1,0 +1,45 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+   <div class="ImgContainer">
+      <img class="ImgApp" src = "../assets/MeshCode.jpeg" alt="">
+   </div>
+         <div class="login-main-text">
+            <h2>Mesh Code<br></h2>
+            <p>Entre com sua conta para acessar o Dashboard</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                     <label for="username">CPF/CNPJ</label>
+                     <input type="text" formControlName="username"  class="form-control" mask="000.000.000-00||00.000.000/0000-00"  placeholder="Digite seu CPF/CNPJ"  [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">CPF/CNPJ Requerido</div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="username">Senha</label>
+                     <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                   <div *ngIf="f.password.errors.required">A senha é requerida</div>
+                  </div>
+                  </div>
+                  <button type="submit" class="btn btn-login">Entrar</button>
+                  <div class="form-group">
+                     <div class="Forget-Component" >
+                        <a href="/EsqueciSenha" class="link-login"> Esqueceu sua senha? </a>
+                        <a href="/ContateNos" class="link-login-Contate"> Ficou com dúvidas? Contate-nos</a>
+                     </div>
+                  </div>
+                  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+               </form>
+            </div>
+         </div>
+      </div>

@@ -1,0 +1,143 @@
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #1d3d5b; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 3px solid #FBC108; 
+    text-align: left; 
+  }
+  .table>:not(caption)>*>*{
+	background-color:#1d3d5b;
+	color:#FFF;
+  }
+
+:host ::ng-deep .pagination {
+    flex-wrap: wrap;
+  }
+.title{
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+	margin-top: 20px;
+	text-align: left;
+	margin-left: 2%;
+  }
+  :host ::ng-deep .page-link{
+	background-color: #1d3d5b;
+	border: 1px solid #FBC108;
+	color: #FBC108;
+ }
+ :host ::ng-deep .active>.page-link, .page-link.active {
+    z-index: 3;
+    color: #FBC108;
+    background-color: #62a7cf;
+    border-color: #FBC108;
+}
+:host ::ng-deep .disabled>.page-link, .page-link.disabled{
+	background-color: #1d3d5b;
+	border: 1px solid #FBC108;
+	color: #FBC108;
+}
+
+@media screen and (max-width: 600px) {
+	table {
+	  border: 0;
+	}
+  
+	table caption {
+	  font-size: 1.3em;
+	}
+	
+	table thead {
+	  border: none;
+	  clip: rect(0 0 0 0);
+	  height: 1px;
+	  margin: -1px;
+	  overflow: hidden;
+	  padding: 0;
+	  position: absolute;
+	  width: 1px;
+	}
+	
+	table tr {
+	  border-bottom: 3px solid #ddd;
+	  display: block;
+	  margin-bottom: .625em;
+	}
+	
+	table td {
+	  border-bottom: 1px solid #ddd;
+	  display: block;
+	  font-size: .8em;
+	  text-align: right;
+	}
+	
+	table td::before {
+	  /*
+	  * aria-label has no advantage, it won't be read inside a table
+	  content: attr(aria-label);
+	  */
+	  content: attr(data-label);
+	  float: left;
+	  font-weight: bold;
+	  text-transform: uppercase;
+	}
+	
+	table td:last-child {
+	  border-bottom: 0;
+	}
+}
+.d-flex{
+	display:flex;
+	text-align: center ;
+	.page-item.active .page-link{
+		background-color: #1d3d5b;
+		border: 3px solid #FBC108;
+		color: #FBC108;
+	}
+	.ul > li > a
+	{
+		background-color: #1d3d5b;
+		border: 3px solid #FBC108;
+		color: #FBC108;
+	}
+	
+	.ul > li > a:focus,
+	.ul > li > a:hover,
+	.ul > li > span:focus,
+	.ul > li > span:hover
+	{
+		color: purple;
+		background-color: #eee;
+		border-color: #ddd;
+	}
+	
+	.ul > .active > a
+	{
+		color: white;
+		background-color: purple;
+		border: solid 1px purple;
+	}
+	
+	.ul > .active > a:hover
+	{
+		background-color: purple;
+		border: solid 1px purple;
+	}
+}
+
+.form-control{
+	margin-left: 3%;
+    width: 50%;
+}
+.Subtitle{
+	margin-left: 3%;
+}

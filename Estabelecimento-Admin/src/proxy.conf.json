@@ -1,0 +1,7 @@
+{
+    "/api*": {
+      "target": "http://gralha.nuvemidc.com:6402",
+      "secure": false,
+      "logLevel": "debug"
+    }
+}

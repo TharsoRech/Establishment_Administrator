@@ -1,0 +1,34 @@
+<div clas="ContainerTable">
+    <h1 class="title"> Loja</h1>
+    <p class="Subtitle">Procurar item na loja:</p>
+    <input class="form-control" id="Pesquise"  type="text" (keyup)="applyFilter($event)" placeholder="Digite aqui..">
+    <button type="button" class="btn-add" (click)="EditModal('0');">Adicionar Novo Cupom </button>
+<ul class="tilesWrap" >
+	<li *ngFor="let cupom of cupomList">
+		<h2>Desconto de {{cupom.DescountPercent}}%</h2>
+		<h3>Valor(R$): {{cupom.Value}}</h3>
+		<h3>Desconto(%): {{cupom.DescountPercent}}%</h3>
+		<h3>Status: {{this.Status}}</h3>
+		<button (click)="EditModal(cupom.EstablishmentId);">Editar</button>
+		<button class="button-remove" (click)="EditModal(cupom.EstablishmentId);">Remover</button>
+	</li>
+</ul>
+</div>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h4 class="modal-title"></h4>
+		  <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+		</div>
+		<div class="modal-body">
+			<div *ngIf="this.SelectCupom">
+				<app-EditarCupom [SelectCupom] ="this.SelectCupom" ></app-EditarCupom>
+			</div>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-default" (click)="onCloseHandled()">Fechar</button>
+		</div>
+	  </div>
+	</div>
+  </div>

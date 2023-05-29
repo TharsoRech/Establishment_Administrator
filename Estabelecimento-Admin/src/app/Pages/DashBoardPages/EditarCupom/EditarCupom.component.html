@@ -1,0 +1,61 @@
+<div class="card m-3">
+    <div class="card-body">
+      <div class="form-group col-12">
+        <h3>{{this.titulo}}</h3> 
+    </div>
+    <br/>
+      <form [formGroup]="cumpomForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label>Nome:</label>
+            <br/>
+            <input type="text" formControlName="Nome" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Nome.errors }" />
+            <div *ngIf="submitted && f.Nome.errors" class="invalid-feedback">
+              <div *ngIf="f.Nome.errors?.required">O Nome é requerido</div>
+            </div>
+          </div>
+          <br/>
+          <div class="form-group col-12">
+            <label>Valor(R$):</label>
+            <br/>
+            <input type='number' formControlName="Valor" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Valor.errors }" />
+            <div *ngIf="submitted && f.Valor.errors" class="invalid-feedback">
+              <div *ngIf="f.Valor.errors?.required">O Valor é requerido</div>
+            </div>
+          </div>
+          <br/>
+          <div class="form-group col-12">
+            <label>Desconto Total(%):</label>
+            <br/>
+            <input type='number' formControlName="Desconto" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Desconto.errors }" />
+            <div *ngIf="submitted && f.Desconto.errors" class="invalid-feedback">
+              <div *ngIf="f.Desconto.errors?.required">O Desconto é requerido</div>
+            </div>
+          </div>
+          <br/>
+          <div class="form-group col-12" >
+            <label>Ativo:</label>
+            <br/>
+            <label class="toggle-switch">
+              <input formControlName="Ativo" type="checkbox" [(ngModel)]="selected">
+              <div class="slider"></div>
+            </label>
+          </div>
+        </div>
+        <br/>
+        <div class="form-group col-12" *ngIf="this.mostraAlteracao">
+          Data Criação: {{this.Alteracao}}
+     </div>
+     <br/>
+        <div class="text-center">
+          <button class="btn btn-primary mr-1">Salvar</button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">Limpar Campos</button>
+        </div>
+        <br/>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      </form>
+    </div>
+  </div>
+  
+  
+  

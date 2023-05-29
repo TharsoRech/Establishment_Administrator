@@ -1,0 +1,32 @@
+
+ <div clas="ContainerTable">
+    <h1 class="title"> Histórico de pontos</h1>
+    <p class="Subtitle">procure seu histórico de pontos aqui:</p>
+    <input class="form-control" id="Pesquise" (keyup)="applyFilter($event)" type="text" placeholder="Digite aqui..">
+    <div class="table-responsive-sm m-5">
+        <table class="table table-responci">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Cliente:</th>
+                    <th scope="col">Cpf:</th>
+                    <th scope="col">Pontos:</th>
+                    <th scope="col">Valor Compra:</th>
+                    <th scope="col">Efetivida Em:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of pontosList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                    <th scope="row">{{item.Cliente}}</th>
+                    <td>{{item.Cpf}}</td>
+                    <td>{{item.Pontos}}</td>
+                    <td>{{item.ValorCompra}}</td>
+                    <td>{{item.EfetividaEm}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <ngb-pagination style="flex-wrap: wrap;" class="d-flex justify-content-center"  [boundaryLinks]="true" [(page)]="page" [pageSize]="pageSize" [collectionSize]="pontosList.length"></ngb-pagination>
+      </div>
+ </div>
+
+

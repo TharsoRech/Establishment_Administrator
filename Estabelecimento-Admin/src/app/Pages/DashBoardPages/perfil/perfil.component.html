@@ -1,0 +1,106 @@
+<h1 class="title">Perfil</h1>
+<div class="Fields">
+<div>
+<div class="formContainer">
+<form [formGroup]="configsForm" (ngSubmit)="onSubmit()" class="formStyle">
+<div class="containerOne">
+<div>
+<h3>Detalhes da Conta</h3>
+<label for="RazaoSocial">Razão Social</label>
+<input type="text" formControlName="RazaoSocial" [ngClass]="{ 'is-invalid': submitted && f.RazaoSocial.errors }" id="RazaoSocial" name="RazaoSocial" />
+<div *ngIf="submitted && f.RazaoSocial.errors" class="invalid-feedback">
+    <div *ngIf="f.RazaoSocial.errors.required">Razão social Requerida</div>
+ </div>
+<label for="Telefone"> Telefone</label>
+<input type="text" formControlName="Telefone" [ngClass]="{ 'is-invalid': submitted && f.Telefone.errors }"  id="Telefone" name="Telefone" mask="(00)000000000"/>
+<div *ngIf="submitted && f.Telefone.errors" class="invalid-feedback">
+    <div *ngIf="f.Telefone.errors.required">Telefone Requerido</div>
+ </div>
+<label for="Cep">Cep</label>
+<input type="text" formControlName="Cep" [ngClass]="{ 'is-invalid': submitted && f.Cep.errors }"  id="Cep" name="Cep" mask="00000-000" />
+<div *ngIf="submitted && f.Cep.errors" class="invalid-feedback">
+    <div *ngIf="f.Cep.errors.required">Cep Requerido</div>
+ </div>
+<label for="Cidade" >Cidade</label>
+<input type="text" formControlName="Cidade" [ngClass]="{ 'is-invalid': submitted && f.Cidade.errors }" id="Cidade" name="Cidade" />
+<div *ngIf="submitted && f.Cidade.errors" class="invalid-feedback">
+    <div *ngIf="f.Cidade.errors.required">Cep Requerido</div>
+ </div>
+ <label for="Uf"> Uf</label>
+ <input type="text" formControlName="Uf" [ngClass]="{ 'is-invalid': submitted && f.Uf.errors }"  id="Uf" name="Uf"  />
+<div *ngIf="submitted && f.Uf.errors" class="invalid-feedback">
+    <div *ngIf="f.Uf.errors.required">Uf Requerido</div>
+ </div>
+</div>
+<div>
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<div class="containerDuo">
+    <label for="Endereco">Endereco</label>
+    <input type="text" formControlName="Endereco" id="Endereco" name="Endereco" [ngClass]="{ 'is-invalid': submitted && f.Endereco.errors }" />
+    <div *ngIf="submitted && f.Endereco.errors" class="invalid-feedback">
+        <div *ngIf="f.Endereco.errors.required">Endereco Requerido</div>
+     </div>
+    <label for="Bairro">Bairro</label>
+    <input type="text" formControlName="Bairro" [ngClass]="{ 'is-invalid': submitted && f.Bairro.errors }" id="Bairro" name="Bairro" />
+    <div *ngIf="submitted && f.Bairro.errors" class="invalid-feedback">
+        <div *ngIf="f.Bairro.errors.required">Bairro Requerido</div>
+     </div>
+    <label for="Numero">Numero</label>
+    <input type="number" formControlName="Numero" [ngClass]="{ 'is-invalid': submitted && f.Numero.errors }" id="Numero" name="Numero" />
+    <div *ngIf="submitted && f.Numero.errors" class="invalid-feedback">
+        <div *ngIf="f.Numero.errors.required">Número Requerido</div>
+     </div>
+    <label for="Complemento">Complemento</label>
+    <input type="text" formControlName="Complemento" id="Complemento" name="Complemento" />
+    <button type="submit" class="btn btn-info">Salvar Informações</button>
+    <div *ngIf="sucesso" class="valid-feedback">
+        <div >Informações salvas com sucesso</div>
+      </div>
+      <div *ngIf="!salvarConfiguracoes && submitted" class="invalid-submit">
+         <div [innerHTML] = "error"> </div>
+       </div>
+    </div>
+</form>
+<form [formGroup]="senhasForm" (ngSubmit)="onSubmit2()">
+    <div class="containerThree">
+    <div>
+        <h3>Senha</h3>
+        <label for="password">Senha Atual</label>
+        <input type="password" formControlName="password" id="password" name="password" [ngClass]="{ 'is-invalid': submittedSenha && f1.password.errors }" />
+        <div *ngIf="submittedSenha && f1.password.errors" class="invalid-feedback">
+            <div *ngIf="f1.password.errors.required">Senha Requerida</div>
+         </div>
+        <label for="passwordNew">Nova senha</label>
+        <input type="password" formControlName="passwordNew" id="passwordNew" name="passwordNew" [ngClass]="{ 'is-invalid': submittedSenha && f1.passwordNew.errors }" />
+        <div *ngIf="submittedSenha && f1.passwordNew.errors" class="invalid-feedback">
+            <div *ngIf="f1.passwordNew.errors.required">Senha Requerida</div>
+         </div>
+        <button type="submit" class="btn btn-senha">Alterar Senha</button>
+<div *ngIf="salvarSenha" class="valid-feedback">
+  <div >Senha alterada com sucesso</div>
+</div>
+<div *ngIf="!sucessoSenha && submittedSenha" class="invalid-submit">
+   <div [innerHTML] = "errorSenha"> </div>
+ </div>
+    </div>
+    <div>
+    <div>
+    <div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+</div>
+
+</div>
+</div>
+
+
+
+

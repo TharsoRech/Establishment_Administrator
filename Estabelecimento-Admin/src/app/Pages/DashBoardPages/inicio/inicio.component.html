@@ -1,0 +1,34 @@
+<h1 class="title">Bem vindo ao DashBoard da MeshCode</h1>
+<div class="ContainerFlex">
+<div class="Fields">
+<div>
+<div class="formContainer">
+<form [formGroup]="pontosForm" (ngSubmit)="onSubmit()">
+<div class="Fields">
+<div>
+<h3>Registrar Pontos</h3>
+<label for="cpfCnpj">CPF/CNPJ</label>
+<input type="text" formControlName="cpfCnpj"  class="form-control" mask="000.000.000-00||00.000.000/0000-00"  placeholder="Digite seu CPF/CNPJ"  [ngClass]="{ 'is-invalid': submitted && f.cpfCnpj.errors }">
+<div *ngIf="submitted && f.cpfCnpj.errors" class="invalid-feedback">
+   <div *ngIf="f.cpfCnpj.errors.required">CPF/CNPJ Requerido</div>
+</div>
+<label for="pontos"> Quantidade de pontos</label>
+<input type='number' formControlName="pontos"  class="form-control"  placeholder="Digite a quantidade de pontos desejada"  [ngClass]="{ 'is-invalid': submitted && f.pontos.errors }">
+<div *ngIf="submitted && f.pontos.errors" class="invalid-feedback">
+   <div *ngIf="f.pontos.errors.required">Quantidade de pontos Requerido</div>
+</div>
+<button type="submit" class="btn btn-login">Registrar Pontos</button>
+<div *ngIf="sucesso" class="valid-feedback">
+  <div >Pontos Inseridos com sucesso</div>
+</div>
+<div *ngIf="inserirPontosComErro" class="invalid-pontos">
+   <div [innerHTML] = "error"> </div>
+ </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
